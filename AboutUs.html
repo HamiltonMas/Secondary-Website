@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Global Academy | World-Class Education</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* CSS Reset & Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      :root {
+        --primary-color: #1a365d;
+        --secondary-color: #f44336;
+        --accent-color: #ffc107;
+        --light-color: #f8f9fa;
+        --dark-color: #212529;
+        --text-color: #333;
+        --text-light: #777;
+        --transition: all 0.3s ease;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .container {
+        width: 85%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: var(--transition);
+        border: 2px solid transparent;
+      }
+
+      .btn:hover {
+        background: transparent;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      .btn-accent {
+        background: var(--secondary-color);
+      }
+
+      .btn-accent:hover {
+        color: var(--secondary-color);
+        border-color: var(--secondary-color);
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--secondary-color);
+        margin: 20px auto;
+      }
+
+      /* Header & Navigation */
+      .header {
+        min-height: 70vh;
+        background: linear-gradient(
+            rgba(26, 54, 93, 0.8),
+            rgba(26, 54, 93, 0.8)
+          ),
+          url("https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80")
+            no-repeat center center/cover;
+        color: white;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      .navbar.scrolled {
+        background: rgba(26, 54, 93, 0.95);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+      }
+
+      .logo span {
+        color: var(--accent-color);
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links a.active::after {
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      .hero-content {
+        text-align: center;
+        width: 90%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      /* About Intro Section */
+      .about-intro {
+        background: var(--light-color);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about-text h2 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+      }
+
+      .about-image {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Mission & Vision Section */
+      .mission-vision {
+        background: white;
+      }
+
+      .mv-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      .mv-card {
+        background: var(--light-color);
+        padding: 40px 30px;
+        border-radius: 10px;
+        text-align: center;
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .mv-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .mv-icon {
+        font-size: 3rem;
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+      }
+
+      .mv-card h3 {
+        margin-bottom: 15px;
+        color: var(--primary-color);
+      }
+
+      /* History Section */
+      .history {
+        background: var(--light-color);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background: var(--secondary-color);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: var(--primary-color);
+        border: 4px solid var(--secondary-color);
+        border-radius: 50%;
+        top: 15px;
+        z-index: 1;
+      }
+
+      .left {
+        left: 0;
+        text-align: right;
+      }
+
+      .right {
+        left: 50%;
+        text-align: left;
+      }
+
+      .left::after {
+        right: -12px;
+      }
+
+      .right::after {
+        left: -12px;
+      }
+
+      .timeline-content {
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .timeline-content h3 {
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+
+      .timeline-content p {
+        color: var(--text-light);
+      }
+
+      /* Leadership Section */
+      .leadership {
+        background: white;
+      }
+
+      .leadership-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .leader-card {
+        background: var(--light-color);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+
+      .leader-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .leader-img {
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .leader-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .leader-card:hover .leader-img img {
+        transform: scale(1.05);
+      }
+
+      .leader-info {
+        padding: 25px;
+        text-align: center;
+      }
+
+      .leader-info h3 {
+        margin-bottom: 5px;
+        color: var(--primary-color);
+      }
+
+      .leader-info p {
+        color: var(--secondary-color);
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .leader-info .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .leader-info .social-links a {
+        width: 35px;
+        height: 35px;
+        background: rgba(26, 54, 93, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+
+      .leader-info .social-links a:hover {
+        background: var(--secondary-color);
+        color: white;
+      }
+
+      /* Stats Section */
+      .stats {
+        background: linear-gradient(
+            rgba(26, 54, 93, 0.9),
+            rgba(26, 54, 93, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+            no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 80px 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+
+      .stat-item {
+        padding: 30px;
+      }
+
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+
+      .stat-text {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary-color);
+        color: white;
+        padding: 60px 0 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .footer-col h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--accent-color);
+      }
+
+      .footer-col p {
+        margin-bottom: 15px;
+        opacity: 0.8;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        opacity: 0.8;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        padding-left: 5px;
+        color: var(--accent-color);
+      }
+
+      .social-links {
+        display: flex;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--accent-color);
+        color: var(--primary-color);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .container {
+          width: 90%;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+          z-index: 1001;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          max-width: 300px;
+          height: 100vh;
+          background: var(--primary-color);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+          z-index: 1000;
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .timeline::before {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-item::after {
+          left: 21px;
+        }
+
+        .left,
+        .right {
+          left: 0;
+          text-align: left;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Hero Section -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="container">
+          <a href="index.html" class="logo">Global<span>Academy</span></a>
+
+          <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="AboutUs.html" class="active">About</a></li>
+            <li><a href="Subjects.html">Subject</a></li>
+            <li><a href="Amission.html">Academics</a></li>
+            <li><a href="StudentLife.html">Student Life</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <h1>About Global Academy</h1>
+        <p>
+          Discover our rich heritage, guiding principles, and the visionary
+          leaders who shape our institution.
+        </p>
+        <a href="#mission" class="btn btn-accent">Explore Our Story</a>
+      </div>
+    </header>
+
+    <!-- About Intro Section -->
+    <section class="section about-intro">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <h2>Our Legacy of Excellence</h2>
+            <p>
+              Since our founding, we have been dedicated to guiding students
+              from their very first years of learning in
+              <strong>Elementary School</strong>, through the exciting
+              challenges of <strong>Middle School</strong>, and into the
+              academic and personal growth of <strong>High School</strong>.
+            </p>
+            <p>
+              Each stage of education is carefully designed to build confidence,
+              character, and knowledge. Our elementary program fosters curiosity
+              and foundational skills. Middle school encourages exploration and
+              independence. High school prepares students for college, careers,
+              and meaningful contributions to society.
+            </p>
+            <a href="#history" class="btn">Our History</a>
+          </div>
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Global Academy Campus"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section id="mission" class="section mission-vision">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Guiding Principles</h2>
+          <p>
+            The foundation upon which Global Academy was built and continues to
+            thrive.
+          </p>
+        </div>
+
+        <div class="mv-grid">
+          <div class="mv-card">
+            <div class="mv-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Our Mission</h3>
+            <p>
+              To empower students from all backgrounds through transformative
+              education that combines rigorous academics with real-world
+              experience, fostering intellectual curiosity, ethical leadership,
+              and global citizenship.
+            </p>
+          </div>
+
+          <div class="mv-card">
+            <div class="mv-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h3>Our Vision</h3>
+            <p>
+              To be the global leader in innovative education, recognized for
+              developing solutions to society's greatest challenges and
+              preparing students to thrive in an interconnected world.
+            </p>
+          </div>
+
+          <div class="mv-card">
+            <div class="mv-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Our Values</h3>
+            <p>
+              Excellence, Integrity, Diversity, Innovation, and Community. These
+              core values guide every decision we make and every relationship we
+              build within our academic community.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="section history">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our History</h2>
+          <p>Key milestones in our journey of nurturing young learners.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3>1985 - Our Beginning</h3>
+              <p>
+                Our school was founded with just a single
+                <strong>Elementary School</strong>
+                class, welcoming young learners into a supportive and nurturing
+                environment.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h3>1995 - Middle School Opens</h3>
+              <p>
+                With growing enrollment, we expanded to include a dedicated
+                <strong>Middle School</strong>, giving students new
+                opportunities to explore subjects and build independence.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3>2005 - High School Established</h3>
+              <p>
+                The addition of our <strong>High School</strong> marked a major
+                milestone, preparing students for college and future careers
+                with advanced academics and extracurricular programs.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h3>2015 - Campus Growth</h3>
+              <p>
+                Expanded facilities with new classrooms, labs, and sports
+                grounds to support growing enrollment and diverse student
+                interests.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h3>2023 - Today</h3>
+              <p>
+                Today, we are proud to serve hundreds of students across
+                <strong>Elementary, Middle, and High School</strong>, continuing
+                our legacy of excellence in education.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="section leadership">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Leadership</h2>
+          <p>The visionary team guiding Global Academy into the future.</p>
+        </div>
+
+        <div class="leadership-grid">
+          <div class="leader-card">
+            <div class="leader-img">
+              <img
+                src="https://randomuser.me/api/portraits/women/65.jpg"
+                alt="Dr. Sarah Johnson"
+              />
+            </div>
+            <div class="leader-info">
+              <h3>Dr. Sarah Johnson</h3>
+              <p>Chancellor</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="leader-img">
+              <img
+                src="https://randomuser.me/api/portraits/men/42.jpg"
+                alt="Prof. David Chen"
+              />
+            </div>
+            <div class="leader-info">
+              <h3>Prof. David Chen</h3>
+              <p>Vice Chancellor, Academic Affairs</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="leader-img">
+              <img
+                src="https://randomuser.me/api/portraits/women/33.jpg"
+                alt="Dr. Maria Rodriguez"
+              />
+            </div>
+            <div class="leader-info">
+              <h3>Dr. Maria Rodriguez</h3>
+              <p>Vice Chancellor, Research</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="leader-card">
+            <div class="leader-img">
+              <img
+                src="https://randomuser.me/api/portraits/men/75.jpg"
+                alt="James Wilson"
+              />
+            </div>
+            <div class="leader-info">
+              <h3>James Wilson</h3>
+              <p>Vice Chancellor, Administration</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">38</div>
+            <div class="stat-text">Years of Excellence</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">50K+</div>
+            <div class="stat-text">Students Worldwide</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">200+</div>
+            <div class="stat-text">Academic Programs</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-text">Continents</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>Global Academy</h3>
+            <p>
+              Providing world-class education since 1985. Our mission is to
+              empower students to become thoughtful, engaged citizens of the
+              world.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="AboutUs.html">About Us</a></li>
+              <li><a href="Subjects.html">Subjects</a></li>
+              <li><a href="Amission.html">Admissions</a></li>
+              <li><a href="StudentLife.html">Student Life</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Programs</h3>
+            <ul class="footer-links">
+              <li><a href="Subjects.html">Elementary School</a></li>
+              <li><a href="Subjects.html">Middle School</a></li>
+              <li><a href="Subjects.html">High School</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Contact Us</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Education Ave, London,
+              UK
+            </p>
+            <p><i class="fas fa-phone"></i> +44 20 1234 5678</p>
+            <p><i class="fas fa-envelope"></i> info@globalacademy.edu</p>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2023 Global Academy. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.innerHTML = navLinks.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Sticky Navbar on Scroll
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

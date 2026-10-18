@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admissions - Global Academy</title>
+    <meta
+      name="description"
+      content="Join Global Academy's community of excellence. Learn about our admission process, academic performance, and student achievements."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      /* CSS Variables */
+      :root {
+        --primary-color: #1a365d;
+        --secondary-color: #f44336;
+        --accent-color: #ffc107;
+        --light-color: #f8f9fa;
+        --dark-color: #212529;
+        --text-color: #333;
+        --text-light: #777;
+        --transition: all 0.3s ease;
+      }
+
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .container {
+        width: 85%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: var(--transition);
+        border: 2px solid transparent;
+      }
+
+      .btn:hover {
+        background: transparent;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      .btn-large {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+      }
+
+      .btn-accent {
+        background: var(--secondary-color);
+      }
+
+      .btn-accent:hover {
+        color: var(--secondary-color);
+        border-color: var(--secondary-color);
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--secondary-color);
+        margin: 20px auto;
+      }
+
+      /* Header & Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        z-index: 1000;
+        transition: var(--transition);
+        background: none;
+        color: white;
+      }
+
+      .navbar.scrolled {
+        background: #1a365d;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+      }
+
+      .logo span {
+        color: var(--accent-color);
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links a.active::after {
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      /* Hero Section */
+      .admission-hero {
+        background: linear-gradient(
+            rgba(26, 54, 93, 0.8),
+            rgba(26, 54, 93, 0.8)
+          ),
+          url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+            no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+      }
+
+      .admission-hero-content {
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      .admission-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .admission-hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Performance Section */
+      .performance-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .performance-card {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .performance-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .performance-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      .stat-value {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 5px;
+      }
+
+      .stat-label {
+        display: block;
+        color: var(--text-light);
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+      }
+
+      .trend-up {
+        color: #4caf50;
+        font-weight: 500;
+      }
+
+      /* Graphs Section */
+      .charts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+      }
+
+      .graph-container {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      .graph-container:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .graph-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .graph-title {
+        color: var(--primary-color);
+      }
+
+      .graph-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .graph-btn {
+        padding: 5px 15px;
+        background: var(--light-color);
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 0.8rem;
+      }
+
+      .graph-btn:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .chart-container {
+        height: 300px;
+        width: 100%;
+      }
+
+      /* Achievers Section */
+      .achievers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .achiever-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      .achiever-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .achiever-img {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        transition: var(--transition);
+      }
+
+      .achiever-card:hover .achiever-img {
+        transform: scale(1.05);
+      }
+
+      .achiever-content {
+        padding: 25px;
+      }
+
+      .achiever-name {
+        color: var(--primary-color);
+        margin-bottom: 5px;
+      }
+
+      .achiever-year {
+        color: var(--secondary-color);
+        font-weight: 500;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+      }
+
+      .achievements-list li {
+        margin-bottom: 8px;
+        padding-left: 15px;
+        position: relative;
+        font-size: 0.9rem;
+      }
+
+      .achievements-list li::before {
+        content: "•";
+        color: var(--accent-color);
+        position: absolute;
+        left: 0;
+      }
+
+      /* Process Section */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        background-color: var(--accent-color);
+        top: 0;
+        bottom: 0;
+        left: 30px;
+      }
+
+      .timeline-item {
+        padding: 10px 0 10px 50px;
+        position: relative;
+      }
+
+      .step-number {
+        position: absolute;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        z-index: 1;
+      }
+
+      .timeline-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      .timeline-item:hover .timeline-content {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .process-title {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      /* Deadline Section */
+      .deadline-section {
+        background: linear-gradient(
+            rgba(26, 54, 93, 0.9),
+            rgba(26, 54, 93, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+            no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 100px 0;
+        border-radius: 10px;
+        margin: 80px auto;
+      }
+
+      .deadline-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .deadline-title {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .deadline-date {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        margin-bottom: 20px;
+      }
+
+      .deadline-text {
+        max-width: 600px;
+        margin: 0 auto 30px;
+        font-size: 1.1rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary-color);
+        color: white;
+        padding: 60px 0 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .footer-col h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--accent-color);
+      }
+
+      .footer-col p {
+        margin-bottom: 15px;
+        opacity: 0.8;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        opacity: 0.8;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        padding-left: 5px;
+        color: var(--accent-color);
+      }
+
+      .social-links {
+        display: flex;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--accent-color);
+        color: var(--primary-color);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .container {
+          width: 90%;
+        }
+
+        .admission-hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+          z-index: 1001;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          max-width: 300px;
+          height: 100vh;
+          background: #1a365d;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+          z-index: 1000;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .admission-hero h1 {
+          font-size: 2rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .charts-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .admission-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+
+        .performance-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .deadline-title {
+          font-size: 2rem;
+        }
+
+        .deadline-date {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">Global<span>Academy</span></a>
+
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="AboutUs.html">About</a></li>
+          <li><a href="Subjects.html">Subjects</a></li>
+          <li><a href="Admission.html" class="active">Admissions</a></li>
+          <li><a href="StudentLife.html">Student Life</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="admission-hero">
+      <div class="admission-hero-content">
+        <h1>Join Our Community of Excellence</h1>
+        <p>
+          Discover why Global Academy is the perfect place for your child's
+          educational journey
+        </p>
+        <a href="#process" class="btn btn-large btn-accent"
+          >View Admission Process</a
+        >
+      </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Academic Excellence</h2>
+          <p>
+            Our Elementary, Middle, and High School programs are designed to
+            inspire curiosity, develop critical thinking, and prepare students
+            for lifelong success. Across all grade levels, our students
+            consistently achieve outstanding results.
+          </p>
+        </div>
+
+        <div class="performance-grid">
+          <div class="performance-card">
+            <h3>Elementary Success</h3>
+            <span class="stat-value">95%</span>
+            <span class="stat-label"
+              >Reading & math proficiency by grade 5</span
+            >
+            <p class="trend-up">+4% from last year</p>
+          </div>
+
+          <div class="performance-card">
+            <h3>Middle School Achievement</h3>
+            <span class="stat-value">92%</span>
+            <span class="stat-label"
+              >Students meeting or exceeding standards</span
+            >
+            <p class="trend-up">+3% from previous period</p>
+          </div>
+
+          <div class="performance-card">
+            <h3>High School Graduation</h3>
+            <span class="stat-value">98%</span>
+            <span class="stat-label">Graduation rate in the last 5 years</span>
+            <p class="trend-up">+2% from previous period</p>
+          </div>
+        </div>
+
+        <div class="performance-grid">
+          <div class="performance-card">
+            <h3>College Readiness</h3>
+            <span class="stat-value">90%</span>
+            <span class="stat-label">Seniors accepted to higher education</span>
+            <p class="trend-up">+5% from last year</p>
+          </div>
+
+          <div class="performance-card">
+            <h3>Honor Students</h3>
+            <span class="stat-value">40%</span>
+            <span class="stat-label">On honor roll across all grades</span>
+            <p class="trend-up">+2% from last year</p>
+          </div>
+
+          <div class="performance-card">
+            <h3>Extracurricular Awards</h3>
+            <span class="stat-value">30+</span>
+            <span class="stat-label">Regional & state awards in 2023</span>
+            <p class="trend-up">+6 from previous year</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Graphs Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Performance Trends</h2>
+          <p>
+            Our commitment to excellence is reflected in our consistent
+            performance improvements across all key metrics.
+          </p>
+        </div>
+        <div class="charts-grid">
+          <div class="graph-container">
+            <div class="graph-header">
+              <h3 class="graph-title">Graduation Rate Trend</h3>
+              <div class="graph-actions">
+                <button class="graph-btn">5 Years</button>
+                <button class="graph-btn">10 Years</button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas
+                id="graduationChart"
+                aria-label="Graduation Rate Trend Chart"
+              ></canvas>
+            </div>
+          </div>
+          <div class="graph-container">
+            <div class="graph-header">
+              <h3 class="graph-title">AP Pass Rate by Subject</h3>
+              <div class="graph-actions">
+                <button class="graph-btn">2023</button>
+                <button class="graph-btn">2022</button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas
+                id="apChart"
+                aria-label="AP Pass Rate by Subject Chart"
+              ></canvas>
+            </div>
+          </div>
+          <div class="graph-container">
+            <div class="graph-header">
+              <h3 class="graph-title">College Acceptance Rate</h3>
+              <div class="graph-actions">
+                <button class="graph-btn">5 Years</button>
+                <button class="graph-btn">10 Years</button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas
+                id="acceptanceChart"
+                aria-label="College Acceptance Rate Chart"
+              ></canvas>
+            </div>
+          </div>
+          <div class="graph-container">
+            <div class="graph-header">
+              <h3 class="graph-title">Top Achiever Growth</h3>
+              <div class="graph-actions">
+                <button class="graph-btn">5 Years</button>
+                <button class="graph-btn">10 Years</button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas
+                id="achieversChart"
+                aria-label="Top Achiever Growth Chart"
+              ></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievers Section -->
+    <section class="section" id="achievers">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Top Achievers</h2>
+          <p>
+            Meet some of our exceptional students who have excelled academically
+            and made significant contributions to our school community.
+          </p>
+        </div>
+
+        <div class="achievers-grid">
+          <div class="achiever-card">
+            <div
+              class="achiever-img"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');
+              "
+              aria-label="Portrait of Emma Johnson"
+            ></div>
+            <div class="achiever-content">
+              <h3 class="achiever-name">Emma Johnson</h3>
+              <div class="achiever-year">Class of 2023</div>
+              <ul class="achievements-list">
+                <li>Valedictorian</li>
+                <li>Perfect SAT score</li>
+                <li>National Science Fair Winner</li>
+                <li>Accepted to MIT, Stanford, Harvard</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="achiever-card">
+            <div
+              class="achiever-img"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');
+              "
+              aria-label="Portrait of Michael Chen"
+            ></div>
+            <div class="achiever-content">
+              <h3 class="achiever-name">Michael Chen</h3>
+              <div class="achiever-year">Class of 2023</div>
+              <ul class="achievements-list">
+                <li>National Math Olympiad Gold Medalist</li>
+                <li>Published research in mathematics</li>
+                <li>Varsity Chess Team Captain</li>
+                <li>Accepted to Caltech and Princeton</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="achiever-card">
+            <div
+              class="achiever-img"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1516726817505-f5ed825624d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');
+              "
+              aria-label="Portrait of Sophia Rodriguez"
+            ></div>
+            <div class="achiever-content">
+              <h3 class="achiever-name">Sophia Rodriguez</h3>
+              <div class="achiever-year">Class of 2024</div>
+              <ul class="achievements-list">
+                <li>Student Body President</li>
+                <li>Founder of Coding for Community</li>
+                <li>National Debate Champion</li>
+                <li>Recipient of Presidential Scholarship</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-title">
+          <h2>Admission Process</h2>
+          <p>
+            Our admission process is designed to welcome students and families
+            into our Elementary, Middle, and High School community. Follow these
+            simple steps to apply for the upcoming school year.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="step-number">1</div>
+            <div class="timeline-content">
+              <h3 class="process-title">Inquiry & School Tour</h3>
+              <p>
+                Begin by contacting our admissions office. Families are
+                encouraged to schedule a school tour to experience our learning
+                environment and meet our teachers.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="step-number">2</div>
+            <div class="timeline-content">
+              <h3 class="process-title">Application Form</h3>
+              <p>
+                Collect an application form from the school office. Submit the
+                completed form along with required documents such as recent
+                report cards, birth certificate, and teacher recommendations
+                <strong>physically at the school</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="step-number">3</div>
+            <div class="timeline-content">
+              <h3 class="process-title">Review by Committee</h3>
+              <p>
+                The admissions team carefully reviews each application,
+                considering academic progress, social readiness, and alignment
+                with our school’s values.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="step-number">4</div>
+            <div class="timeline-content">
+              <h3 class="process-title">Admission Decision</h3>
+              <p>
+                Families will receive an official admission decision by email or
+                phone. Accepted students will also be given details for the next
+                steps.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="step-number">5</div>
+            <div class="timeline-content">
+              <h3 class="process-title">Enrollment & Orientation</h3>
+              <p>
+                Confirm your child’s spot by submitting the enrollment agreement
+                and deposit at the school office. Families are invited to attend
+                an orientation to get ready for the school year.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deadline Section -->
+    <section class="deadline-section">
+      <div class="deadline-content">
+        <h2 class="deadline-title">Application Deadline</h2>
+        <div class="deadline-date">January 15, 2024</div>
+        <p class="deadline-text">
+          Submit your application by this date to be considered for the upcoming
+          academic year. Late applications may be considered based on
+          availability.
+        </p>
+        <a href="#" class="btn btn-large btn-accent">Apply Now</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>Global Academy</h3>
+            <p>
+              Providing world-class education since 1985. Our mission is to
+              empower students to become thoughtful, engaged citizens of the
+              world.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="AboutUs.html">About Us</a></li>
+              <li><a href="Subjects.html">Subjects</a></li>
+              <li><a href="Admission.html">Admissions</a></li>
+              <li><a href="StudentLife.html">Student Life</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Programs</h3>
+            <ul class="footer-links">
+              <li><a href="Subjects.html">Elementary School</a></li>
+              <li><a href="Subjects.html">Middle School</a></li>
+              <li><a href="Subjects.html">High School</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Contact Us</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Education Ave, London,
+              UK
+            </p>
+            <p><i class="fas fa-phone"></i> +44 20 1234 5678</p>
+            <p><i class="fas fa-envelope"></i> info@globalacademy.edu</p>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2023 Global Academy. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.innerHTML = navLinks.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Sticky Navbar on Scroll
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Initialize Charts
+      document.addEventListener("DOMContentLoaded", function () {
+        // Graduation Rate Chart
+        const gradCtx = document
+          .getElementById("graduationChart")
+          .getContext("2d");
+        const gradChart = new Chart(gradCtx, {
+          type: "line",
+          data: {
+            labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+            datasets: [
+              {
+                label: "Graduation Rate",
+                data: [92, 94, 96, 97, 98, 99],
+                borderColor: "#1a365d",
+                backgroundColor: "rgba(26, 54, 93, 0.1)",
+                borderWidth: 3,
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                fill: true,
+                tension: 0.3,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: false,
+                min: 90,
+                max: 100,
+                ticks: {
+                  callback: function (value) {
+                    return value + "%";
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return `Graduation: ${context.parsed.y}%`;
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        // AP Pass Rate Chart
+        const apCtx = document.getElementById("apChart").getContext("2d");
+        const apChart = new Chart(apCtx, {
+          type: "bar",
+          data: {
+            labels: [
+              "Calculus",
+              "Biology",
+              "Chemistry",
+              "Physics",
+              "English",
+              "History",
+            ],
+            datasets: [
+              {
+                label: "Pass Rate",
+                data: [92, 88, 85, 83, 90, 87],
+                backgroundColor: [
+                  "rgba(26, 54, 93, 0.7)",
+                  "rgba(244, 67, 54, 0.7)",
+                  "rgba(26, 54, 93, 0.7)",
+                  "rgba(244, 67, 54, 0.7)",
+                  "rgba(26, 54, 93, 0.7)",
+                  "rgba(244, 67, 54, 0.7)",
+                ],
+                borderColor: [
+                  "#1a365d",
+                  "#1a365d",
+                  "#1a365d",
+                  "#1a365d",
+                  "#1a365d",
+                  "#1a365d",
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                  callback: function (value) {
+                    return value + "%";
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
+          },
+        });
+
+        // College Acceptance Chart
+        const acceptCtx = document
+          .getElementById("acceptanceChart")
+          .getContext("2d");
+        const acceptChart = new Chart(acceptCtx, {
+          type: "line",
+          data: {
+            labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+            datasets: [
+              {
+                label: "Top 50 Universities",
+                data: [85, 88, 90, 92, 94, 97],
+                borderColor: "#1a365d",
+                backgroundColor: "rgba(26, 54, 93, 0.1)",
+                borderWidth: 3,
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                fill: true,
+                tension: 0.3,
+              },
+              {
+                label: "All Universities",
+                data: [93, 94, 95, 96, 97, 97],
+                borderColor: "#f44336",
+                backgroundColor: "rgba(244, 67, 54, 0.1)",
+                borderWidth: 3,
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                fill: true,
+                tension: 0.3,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: false,
+                min: 80,
+                max: 100,
+                ticks: {
+                  callback: function (value) {
+                    return value + "%";
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        // Top Achievers Chart
+        const achieversCtx = document
+          .getElementById("achieversChart")
+          .getContext("2d");
+        const achieversChart = new Chart(achieversCtx, {
+          type: "bar",
+          data: {
+            labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+            datasets: [
+              {
+                label: "National Merit Scholars",
+                data: [18, 22, 25, 27, 28, 32],
+                backgroundColor: "rgba(26, 54, 93, 0.7)",
+                borderColor: "#1a365d",
+                borderWidth: 1,
+              },
+              {
+                label: "Perfect SAT Scores",
+                data: [5, 7, 8, 10, 11, 14],
+                backgroundColor: "rgba(244, 67, 54, 0.7)",
+                borderColor: "#f44336",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

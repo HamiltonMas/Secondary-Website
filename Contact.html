@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Global Academy</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #1a365d;
+        --secondary-color: #f44336;
+        --accent-color: #ffc107;
+        --light-color: #f8f9fa;
+        --dark-color: #212529;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.7;
+        margin: 0;
+        padding: 0;
+        color: var(--dark-color);
+        background-color: var(--light-color);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .header {
+        min-height: 100vh;
+        background: linear-gradient(
+            rgba(26, 54, 93, 0.8),
+            rgba(26, 54, 93, 0.8)
+          ),
+          url("images/banner.png") no-repeat center center/cover;
+        color: white;
+        position: relative;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        background: rgba(26, 54, 93, 0.95);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+      }
+
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+      }
+
+      .logo span {
+        color: var(--accent-color);
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transition: all 0.4s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links a.active::after {
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      .text-box {
+        width: 90%;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .text-box h1 {
+        font-size: 62px;
+        margin-bottom: 20px;
+      }
+
+      .text-box p {
+        margin: 10px 0 40px;
+        font-size: 16px;
+        color: white;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-btn {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid white;
+        padding: 12px 34px;
+        font-size: 13px;
+        background: transparent;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .hero-btn:hover {
+        border: 1px solid var(--secondary-color);
+        background: var(--secondary-color);
+      }
+
+      .menu-toggle {
+        display: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .contact-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        padding: 4rem 0;
+        position: relative;
+        z-index: 3;
+        margin-top: -3rem;
+      }
+
+      .contact-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2.5rem;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        border-top: 4px solid var(--accent-color);
+      }
+
+      .contact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .contact-card h2 {
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 0.75rem;
+      }
+
+      .contact-card h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--accent-color);
+      }
+
+      .contact-icon {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-info p {
+        margin: 1rem 0;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .contact-info a[href^="mailto:"],
+      .department-card p {
+        word-break: break-all;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        display: inline-block;
+      }
+
+      .contact-info i {
+        margin-right: 1rem;
+        color: var(--primary-color);
+        min-width: 20px;
+      }
+
+      .contact-info a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: all 0.3s;
+        font-weight: 500;
+      }
+
+      .contact-info a:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+      }
+
+      .contact-form {
+        grid-column: span 2;
+        background: white;
+        border-radius: 10px;
+        padding: 3rem;
+        box-shadow: var(--shadow);
+        position: relative;
+        border-top: 4px solid var(--accent-color);
+      }
+
+      .contact-form h2 {
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .contact-form h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 70px;
+        height: 4px;
+        background: var(--accent-color);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group.full-width {
+        grid-column: span 2;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.75rem;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(253, 187, 45, 0.2);
+      }
+
+      textarea {
+        min-height: 180px;
+        resize: vertical;
+      }
+
+      button {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 600;
+      }
+
+      button:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+      }
+
+      .map-container {
+        height: 500px;
+        margin: 3rem 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        position: relative;
+        border-top: 4px solid var(--accent-color);
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .department-contacts {
+        margin: 4rem 0;
+      }
+
+      .department-contacts h2 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2rem;
+        position: relative;
+      }
+
+      .department-contacts h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent-color);
+      }
+
+      .departments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .department-card {
+        background: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        transition: all 0.3s;
+        border-top: 3px solid var(--accent-color);
+      }
+
+      .department-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .department-card h3 {
+        color: var(--secondary-color);
+        margin-top: 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .department-card p {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+      }
+
+      footer {
+        background: var(--primary-color);
+        color: white;
+        padding: 4rem 0 2rem;
+        position: relative;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-column h3 {
+        color: white;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.75rem;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--accent-color);
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-column li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-column a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .footer-column a:hover {
+        color: white;
+        padding-left: 5px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .contact-section {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        .contact-form {
+          grid-column: span 1;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .form-group.full-width {
+          grid-column: span 1;
+        }
+
+        .text-box h1 {
+          font-size: 2.5rem;
+        }
+
+        .text-box p {
+          font-size: 1rem;
+        }
+
+        .menu-toggle {
+          display: block;
+          z-index: 1001;
+        }
+        .container {
+          width: 90%;
+        }
+
+        .header {
+          width: 100%;
+        }
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          max-width: 260px;
+          height: 100vh;
+          background: var(--primary-color);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          z-index: 1000;
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .nav-links ul li {
+          display: block;
+          margin: 15px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="header">
+      <nav class="navbar">
+        <div class="container">
+          <a href="#" class="logo">Global<span>Academy</span></a>
+
+          <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="AboutUs.html">About</a></li>
+            <li><a href="Subjects.html">Programs</a></li>
+            <li><a href="Admission.html">Admissions</a></li>
+            <li><a href="StudentLife.html">Student Life</a></li>
+            <li><a href="Contact.html" class="active">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="text-box">
+        <h1>Contact Global Academy</h1>
+        <p>
+          Whether your child is beginning Elementary School, continuing into
+          Middle School, or preparing for High School, our staff is here to
+          assist you. Reach out with questions about programs, admissions, or
+          daily school life.
+        </p>
+        <a href="#contact-form" class="hero-btn">Send Us a Message</a>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="contact-section">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h2>School Location</h2>
+          <div class="contact-info">
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Education Avenue<br />London,
+              UK, SW1A 1AA
+            </p>
+            <p>
+              <i class="fas fa-directions"></i>
+              <a href="#">Get Directions to Campus</a>
+            </p>
+            <p>
+              <i class="fas fa-parking"></i>
+              <a href="#">Visitor Parking Information</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-phone-volume"></i>
+          </div>
+          <h2>Phone & Email</h2>
+          <div class="contact-info">
+            <p>
+              <i class="fas fa-phone"></i> <strong>Main Office:</strong>
+              <a href="tel:+442012345678">+44 20 1234 5678</a>
+            </p>
+            <p>
+              <i class="fas fa-fax"></i> <strong>Fax:</strong> +44 20 1234 5679
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <strong>General Inquiries:</strong>
+              <a href="mailto:info@globalacademy.edu">info@globalacademy.edu</a>
+            </p>
+            <p>
+              <i class="fas fa-user-graduate"></i> <strong>Admissions:</strong>
+              <a href="mailto:admissions@globalacademy.edu"
+                >HamiltonMasipa5@gmail.com</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="far fa-clock"></i>
+          </div>
+          <h2>Office Hours</h2>
+          <div class="contact-info">
+            <p>
+              <i class="fas fa-calendar-day"></i> <strong>Academic Year:</strong
+              ><br />Monday–Friday: 8:00 AM – 4:00 PM
+            </p>
+            <p>
+              <i class="fas fa-sun"></i> <strong>Summer Hours:</strong
+              ><br />Monday–Thursday: 9:00 AM – 2:00 PM
+            </p>
+            <p>
+              <i class="fas fa-door-closed"></i>
+              <strong>Closed:</strong> Weekends & School Holidays
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <h2>School Leadership</h2>
+          <div class="contact-info">
+            <p>
+              <i class="fas fa-user-graduate"></i>
+              <strong>Principal:</strong> Dr. Jane Smith<br /><a
+                href="mailto:jsmith@globalacademy.edu"
+                >jsmith@globalacademy.edu</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-chalkboard-teacher"></i>
+              <strong>Vice Principal:</strong> Mr. John Doe<br /><a
+                href="mailto:jdoe@globalacademy.edu"
+                >jdoe@globalacademy.edu</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-school"></i>
+              <strong>Head of Elementary:</strong> Mrs. Emily Brown<br /><a
+                href="mailto:ebrown@globalacademy.edu"
+                >ebrown@globalacademy.edu</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-user-friends"></i>
+              <strong>Head of Middle School:</strong> Mr. Mark Johnson<br /><a
+                href="mailto:mjohnson@globalacademy.edu"
+                >mjohnson@globalacademy.edu</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-user-graduate"></i>
+              <strong>Head of High School:</strong> Ms. Sarah Lee<br /><a
+                href="mailto:slee@globalacademy.edu"
+                >slee@globalacademy.edu</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-form" id="contact-form">
+          <h2>Send Us a Message</h2>
+          <form action="#" method="POST">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="John Smith"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="john@example.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+44 20 1234 5678"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <select id="subject" name="subject" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="admissions">
+                    Admissions (Elementary, Middle, High)
+                  </option>
+                  <option value="academics">Academic Programs</option>
+                  <option value="guidance">Guidance Counseling</option>
+                  <option value="athletics">Athletics</option>
+                  <option value="arts">Arts Programs</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="message">Your Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="Please type your message here..."
+                ></textarea>
+              </div>
+            </div>
+
+            <button type="submit">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5404230563876!2d-0.1277583234622585!3d51.50073267181335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c38c8cd1d9%3A0xb78f2474b9a45aa9!2sBig%20Ben!5e0!3m2!1sen!2suk!4v1689870314336!5m2!1sen!2suk"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <section class="department-contacts">
+        <h2>Department Contacts</h2>
+        <div class="departments-grid">
+          <div class="department-card">
+            <h3>Admissions Office</h3>
+            <p><strong>Email:</strong> admissions@globalacademy.edu</p>
+            <p><strong>Phone:</strong> +44 20 1234 5001</p>
+            <p><strong>Hours:</strong> M–F 9:00 AM – 4:00 PM</p>
+            <p><a href="admissions.html">Admissions Process →</a></p>
+          </div>
+
+          <div class="department-card">
+            <h3>Guidance Counseling</h3>
+            <p><strong>Email:</strong> counseling@globalacademy.edu</p>
+            <p><strong>Phone:</strong> +44 20 1234 5002</p>
+            <p><strong>Appointments:</strong> Required</p>
+            <p><a href="counseling.html">Schedule Appointment →</a></p>
+          </div>
+
+          <div class="department-card">
+            <h3>Athletics Department</h3>
+            <p><strong>Email:</strong> athletics@globalacademy.edu</p>
+            <p><strong>Phone:</strong> +44 20 1234 5003</p>
+            <p><strong>Director:</strong> Coach Michael Brown</p>
+            <p><a href="sports.html">Sports Schedules →</a></p>
+          </div>
+
+          <div class="department-card">
+            <h3>Arts Programs</h3>
+            <p><strong>Email:</strong> arts@globalacademy.edu</p>
+            <p><strong>Phone:</strong> +44 20 1234 5004</p>
+            <p><strong>Includes:</strong> Music, Theater, Visual Arts</p>
+            <p><a href="arts.html">Upcoming Performances →</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="AboutUs.html">About</a></li>
+              <li><a href="Subjects.html">Subjects</a></li>
+              <li><a href="Amission.html">Academics</a></li>
+              <li><a href="StudentLife.html">Student Life</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Programs</h3>
+            <ul>
+              <li><a href="Subjects.html">Elementary School</a></li>
+              <li><a href="Subjects.html">Middle School</a></li>
+              <li><a href="Subjects.html">High School</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Connect With Us</h3>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>
+            © 2023 Global Academy. All Rights Reserved. |
+            <a href="privacy.html" style="color: var(--accent-color)"
+              >Privacy Policy</a
+            >
+            |
+            <a href="accessibility.html" style="color: var(--accent-color)"
+              >Accessibility</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.innerHTML = navLinks.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Sticky Navbar on Scroll
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Form Submission Handling
+      const contactForm = document.querySelector(".contact-form form");
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Here you would typically send the form data to your server
+        // For demonstration, we'll just show an alert
+        alert("Thank you for your message! We'll get back to you soon.");
+        contactForm.reset();
+
+        // In a real implementation, you might use fetch() to send the data:
+        /*
+        const formData = new FormData(contactForm);
+        fetch('your-server-endpoint', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          alert("Thank you for your message! We'll get back to you soon.");
+          contactForm.reset();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert("There was an error submitting your form. Please try again.");
+        });
+        */
+      });
+    </script>
+  </body>
+</html>
